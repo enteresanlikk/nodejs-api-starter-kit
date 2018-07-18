@@ -1,7 +1,7 @@
 'use strict';
 
-const app = require('../src/server');
-const debug = require('debug')('movieApi:server');
+const app = require('../src/Server');
+const debug = require('debug')('ApiTemplate:server');
 const http = require('http');
 const Settings=require('../config/Settings');
 
