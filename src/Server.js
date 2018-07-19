@@ -1,12 +1,12 @@
 'use strict';
-
 require('./lib/Modules').getAll();
+app.set("dir",__dirname);
 
 require('../config/Settings').setUsedFile();
 
 app.use(require('./middlewares/SetHeader').apply());
 
-require('./Routing').List(app);
+require('../config/Routing');
 
 app.use((req, res)=> {
     res.status(404);
