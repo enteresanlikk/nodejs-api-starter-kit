@@ -6,8 +6,7 @@ require('../config/Settings').setUsedFile();
 
 app.use(require('./middlewares/SetHeader').apply());
 
-const todo=require("./routes/todo");
-app.use("/api/todo",todo);
+require('./Routing').List(app);
 
 app.use((req, res)=> {
     res.status(404);
