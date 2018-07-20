@@ -4,7 +4,11 @@ app.set("dir",__dirname);
 
 require('../config/Settings').setUsedFile();
 
-app.use(require('./middlewares/SetHeader').apply());
+app.use(require('./middlewares/SetHeader'));
+
+app.get("/deneme",require('./middlewares/TestMid1'),(req,res,next)=>{
+    res.send("dfsdf");
+});
 
 require('../config/Routing');
 

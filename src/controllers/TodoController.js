@@ -2,7 +2,6 @@
 const Todo=require("../models/TodoModel");
 
 class TodoController{
-
     GetAllTodo(req,res){
         let {status}=req.headers;
         status=status || 1;

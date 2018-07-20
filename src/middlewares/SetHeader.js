@@ -1,5 +1,5 @@
 class SetHeader {
-    static apply() {
+    constructor(){
         return function handler(req, res, next) {
             res.setHeader('Access-Control-Allow-Origin', req.get('origin') || req.get('host'));
             res.setHeader('Access-Control-Allow-Methods', "GET, POST, DELETE, POST, OPTIONS");
@@ -9,4 +9,4 @@ class SetHeader {
         };
     }
 }
-module.exports=SetHeader;
+module.exports=new SetHeader();

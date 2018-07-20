@@ -5,7 +5,6 @@ class Modules {
         global.app = express();
         global.router = express.Router();
         global.mongoose=require('mongoose');
-        global.path = require('path');
 
         require('dotenv').config();
     }

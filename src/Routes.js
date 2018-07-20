@@ -1,31 +1,22 @@
 const Routes={
     path:'api',
-    version:'v1',
+    version:'1',
     routes:[
         {
             groupUrl:'todo',
             groupRoutes:[
                 {
-                    groupUrl:'list',
-                    groupRoutes:[
-                        {
-                            groupUrl:'test',
-                            groupRoutes:[
-                                {
-                                    method:'GET',
-                                    url:'',
-                                    controller:'TodoController',
-                                    action:'GetAllTodo'
-                                }
-                            ]
-                        },
-                        {
-                            method:'GET',
-                            url:':id',
-                            controller:'TodoController',
-                            action:'GetOneTodo'
-                        }
-                    ]
+                    method:'GET',
+                    url:'list',
+                    controller:'TodoController',
+                    action:'GetAllTodo',
+                    middleware:'TestMid1'
+                },
+                {
+                    method:'GET',
+                    url:'list/:id',
+                    controller:'TodoController',
+                    action:'GetOneTodo'
                 },
                 {
                     method:'POST',
@@ -63,7 +54,8 @@ const Routes={
             method:'GET',
             url:'list',
             controller:'TodoController',
-            action:'GetAllTodo'
+            action:'GetAllTodo',
+            middleware:'TestMid1'
         }
     ]
 };
