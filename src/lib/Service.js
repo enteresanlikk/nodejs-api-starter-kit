@@ -1,9 +1,14 @@
-require('./Modules').getAll();
+require('./Modules');
 
-class Service {
-    constructor(){
-        console.log("Service constructor");
+const Service=()=>{
+    
+    global.setJson=(status,response)=>{
+        return  {
+            status,
+            response
+        }
     }
+
 }
 
-module.exports=new Service();
+module.exports= new Service();

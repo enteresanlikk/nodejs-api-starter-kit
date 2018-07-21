@@ -1,8 +1,9 @@
 'use strict';
-const Todo=require("../models/TodoModel");
+import Todo from '../models/TodoModel';
 
 class TodoController{
     GetAllTodo(req,res){
+        console.log(setJson(200,"sdasd"));
         let {status}=req.headers;
         status=status || 1;
         const getAll=Todo.find({status});
@@ -100,6 +101,11 @@ class TodoController{
             });
     };
 
+    mysqlTest(req,res,next){
+        mysqlDb.query('SELECT * FROM messages', function(err, result) {
+            res.json(result);
+        });
+    }
 }
 
 module.exports=new TodoController();

@@ -10,7 +10,7 @@ const Routes={
                     url:'list',
                     controller:'TodoController',
                     action:'GetAllTodo',
-                    middleware:'TestMid1'
+                    middleware:['TestMid1','TestMid2'] // 'TestMid1'
                 },
                 {
                     method:'GET',
@@ -52,12 +52,11 @@ const Routes={
         },
         {
             method:'GET',
-            url:'list',
+            url:'mysql',
             controller:'TodoController',
-            action:'GetAllTodo',
-            middleware:'TestMid1'
+            action:'mysqlTest'
         }
     ]
 };
 
-module.exports=Routes;
+export default Routes;

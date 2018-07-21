@@ -28,4 +28,4 @@ const TodoSchema=new mongoose.Schema({
     }
 });
 
-module.exports=mongoose.model("todo",TodoSchema);
+export default mongoose.model("todo",TodoSchema);
