@@ -1,62 +1,27 @@
-const Routes={
-    path:'api',
-    version:'1',
+export default {
+    rootUrl:'api',
+    version:{
+        text:'v',
+        number:1
+    },
     routes:[
-        {
-            groupUrl:'todo',
+        /*{
+            groupUrl:'database',
             groupRoutes:[
                 {
                     method:'GET',
-                    url:'list',
-                    controller:'TodoController',
-                    action:'GetAllTodo',
-                    middleware:['TestMid1','TestMid2'] // 'TestMid1'
-                },
-                {
-                    method:'GET',
-                    url:'list/:id',
-                    controller:'TodoController',
-                    action:'GetOneTodo'
-                },
-                {
-                    method:'POST',
-                    url:'add',
-                    controller:'TodoController',
-                    action:'addTodo'
-                },
-                {
-                    method:'DELETE',
-                    url:'delete/:id',
-                    controller:'TodoController',
-                    action:'deleteTodo'
-                },
-                {
-                    method:'PUT',
-                    url:'completed/:id',
-                    controller:'TodoController',
-                    action:'completedTodo'
-                },
-                {
-                    method:'PUT',
-                    url:'in-complete/:id',
-                    controller:'TodoController',
-                    action:'incompleteTodo'
-                },
-                {
-                    method:'PUT',
-                    url:'update/:id',
-                    controller:'TodoController',
-                    action:'updateTodo'
+                    url:'mysql',
+                    controller:'IndexController',
+                    action:'mysqlTest'
                 }
             ]
-        },
+        },*/
         {
             method:'GET',
-            url:'mysql',
-            controller:'TodoController',
-            action:'mysqlTest'
+            url:'',
+            controller:'IndexController',
+            action:'Index',
+            middleware:['TestMid1','TestMid2'] // or 'TestMid1'
         }
     ]
 };
-
-export default Routes;

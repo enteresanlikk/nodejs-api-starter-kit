@@ -1,18 +1,18 @@
-const Modules=()=>{
-    /* GLOBAL MODULES */
+class Modules{
+    constructor(){
+        /* GLOBAL MODULES */
         global.express=require('express');
-        global.bodyParser=require('body-parser');
         global.app = express();
+        global.bodyParser=require('body-parser');
+        global.cookieParser=require('cookie-parser');
+        global.path=require('path');
         global.fs=require('fs');
         require('dotenv').config();
 
         //DATABASE
             global.mongoose=require('mongoose');
             global.mysql=require('mysql');
-
-    /* APP SETTINGS */
-        app.use(bodyParser.urlencoded({ extended: false }));
-        app.use(bodyParser.json());
+    }
 }
 
-module.exports=new Modules();
+export default new Modules();

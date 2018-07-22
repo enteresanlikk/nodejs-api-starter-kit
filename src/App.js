@@ -1,12 +1,17 @@
 'use strict';
-require('./lib/Service');
+//SERVICE
+import './lib/Service';
 
-require('./config/Settings');
+//SETTINGS
+import './config/Settings';
 
+//MIDDLEWARES
 app.use(require('./middlewares/SetHeader'));
 
-require('./config/Routing').setDir(__dirname);
+//SET ROUTING
+import {setDir} from './config/Routing'; setDir(__dirname);
 
+//ERROR PAGE
 app.use((req, res)=> {
     res.status(404);
     res.json({status:404,response:'Page not found!'});

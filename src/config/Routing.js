@@ -1,12 +1,21 @@
 import Routes from '../Routes';
 
-let {path,version,routes} = Routes;
+let {rootUrl,version,routes} = Routes;
 
-let newPath=path ? '/'+path : '';
-let newVersion=version ? '/v'+version : '';
+let newRootUrl=rootUrl ? '/'+rootUrl : '';
+let newVersionText='';
+let newVersionNumber;
+let newVersion='';
+
+if(version){
+    newVersionText=version.text ? version.text : '';
+    newVersionNumber=version.number ? version.number : '';
+    newVersion= (newVersionText || newVersionNumber) ? '/'+newVersionText+newVersionNumber : '' ;
+}
+
 let newRoutes = routes ? routes : [];
 
-const ApiUrl=newPath+newVersion;
+const ApiUrl=newRootUrl+newVersion;
 
 let OldGroupUrl=[],
     NewGroupUrl='',
@@ -26,6 +35,7 @@ class Routing {
     List(routeList,FolderName) {
         const MiddlewareFolder=FolderName+'/middlewares/';
         const ControllerFolder=FolderName+'/controllers/';
+        
         routeList.map((route,i)=>{
             let keys=Object.keys(route);
             if(keys.join(',').indexOf('group')==-1){

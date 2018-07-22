@@ -6,6 +6,6 @@ export function connect(username,password,host,db_name){
     });
 
     mongoose.connection.on("error",function(err){
-        console.log("MongoDB: Error\n"+err);
+        console.error("MongoDB: "+err);
     });
 }
