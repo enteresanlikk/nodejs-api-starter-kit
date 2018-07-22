@@ -81,8 +81,8 @@
         },
         routes:[
             {
-                method:'GET',
-                url:'',
+                method:'GET|POST|PUT|DELETE',
+                url:'example',
                 controller:'IndexController',
                 action:'Index',
                 middleware:['TestMid1','TestMid2'] // or 'TestMid1'
