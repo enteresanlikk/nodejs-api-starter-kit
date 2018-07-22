@@ -86,12 +86,18 @@
 ## **Routing Example (src/routers/root.js)**
 
     ...
+    import example from './example';
+    ...
     rootUrl:'api',
     version:{
         text:'v',
         number:1
     },
     routes:[
+        {
+            groupUrl:'todo',
+            groupRoutes:example
+        },
         {
         method:'GET|POST|PUT|DELETE',
         url:'example',
