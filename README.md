@@ -57,7 +57,7 @@
             - config
                 - MongoDBConnection.js (The MongoDb connection is in this file.)
                 - MysqlConnection.js (The Mysql database connection is in this file.)
-                - Routing.js (The routing in the Routes.js file is being created here.)
+                - Routing.js (The routing in the routes/root.js file is being created here.)
                 - Settings.js (Here are the settings for the project. Database connection, port setting etc.)
         - controllers
             - IndexController.js (The actions to be done are in this controller file.)
@@ -73,15 +73,17 @@
         - public
             - css
                 - style.css
+        - routers
+            - root.js (Routing is the root file we define.)
+            - example.js (Routing is the file we define.)
         - views
             - index.pug
             - layout.pug
         - App.js (It is the main file of the project. This includes services, settings, middleware, routing, and the error status of the project.)
-        - Routes.js (Routing is the file we define.)
     - .env (The port and database settings are in this file.)
     - .babelrc  
 
-## **Routing Example (src/Routes.js)**
+## **Routing Example (src/routers/root.js)**
 
     ...
     rootUrl:'api',
