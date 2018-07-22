@@ -42,33 +42,33 @@
 ## **Project Folder Structure**
 
         - bin
-            - server
+            - server (It is the server file on which the project is running.)
         - src
             - config
-                - MongoDBConnection.js
-                - MysqlConnection.js
-                - Routing.js
-                - Settings.js
+                - MongoDBConnection.js (The MongoDb connection is in this file.)
+                - MysqlConnection.js (The Mysql database connection is in this file.)
+                - Routing.js (The routing in the Routes.js file is being created here.)
+                - Settings.js (Here are the settings for the project. Database connection, port setting etc.)
             - controllers
-                - IndexController.js
+                - IndexController.js (The actions to be done are in this controller file.)
             - lib
-                - Modules.js
-                - Service.js
+                - Modules.js (The Npm libraries are here and are defined globally.)
+                - Service.js (Project-related functions are available here globally.)
             - middlewares
-                - SetHeader.js
-                - TestMid1.js
-                - TestMid2.js
+                - SetHeader.js (Header a sends the necessary parameters.)
+                - TestMid1.js (Test middleware)
+                - TestMid2.js (Test middleware)
             - models
-                - ExampleModel.js
+                - ExampleModel.js (Example mongoDB model.)
             - public
                 - css
                     - style.css
             - views
                 - index.pug
                 - layout.pug
-            - App.js
-            - Routes.js
-    - .env
+            - App.js (It is the main file of the project. This includes services, settings, middleware, routing, and the error status of the project.)
+            - Routes.js (Routing is the file we define.)
+    - .env (The port and database settings are in this file.)
     - .babelrc
 
 ## **Routing Example (src/Routes.js)**
