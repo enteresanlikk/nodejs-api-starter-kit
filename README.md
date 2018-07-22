@@ -103,11 +103,11 @@
 > RootUrl and version are optional. The text and number fields in the version are also optional.
 
 ## Routing Examples
-1. http://localhost:[YOUR_APP_PORT]/[ROOT_URL]/[VERSION_TEXT][VERSION_NUMBER]
-2. http://localhost:[YOUR_APP_PORT]/[ROOT_URL]/[VERSION_TEXT]
-3. http://localhost:[YOUR_APP_PORT]/[ROOT_URL]/[VERSION_NUMBER]
-4. http://localhost:[YOUR_APP_PORT]/[ROOT_URL]
-5. http://localhost:[YOUR_APP_PORT]
+1. http://localhost:[YOUR_APP_PORT]/[ROOT_URL]/[VERSION_TEXT][VERSION_NUMBER]/[ROUTES_URL]
+2. http://localhost:[YOUR_APP_PORT]/[ROOT_URL]/[VERSION_TEXT]/[ROUTES_URL]
+3. http://localhost:[YOUR_APP_PORT]/[ROOT_URL]/[VERSION_NUMBER]/[ROUTES_URL]
+4. http://localhost:[YOUR_APP_PORT]/[ROOT_URL]/[ROUTES_URL]
+5. http://localhost:[YOUR_APP_PORT]/[ROUTES_URL]
 
 >**Important Note**: If you have a mysql connection, you can write your queries with the "**mysqlDb**" variable. You can find the example in the **src/controllers/IndexController** file.
 
