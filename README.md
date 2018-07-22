@@ -103,3 +103,5 @@
     4. http://localhost:[YOUR_APP_PORT]/[ROOT_URL]
 
     5. http://localhost:[YOUR_APP_PORT]
+
+> **Important Note**:  If you have a mysql connection, you can write your queries with the "**mysqldb**" variable. You can find the example in the **src/controllers/IndexController** file.
