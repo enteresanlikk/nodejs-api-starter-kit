@@ -8,7 +8,7 @@ export default {
     },
     routes:[
         {
-            groupUrl:'todo',
+            groupUrl:'example',
             groupRoutes:example
         },
         /*{
