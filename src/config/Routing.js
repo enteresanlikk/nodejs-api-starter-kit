@@ -1,4 +1,4 @@
-import Routes from '../Routes';
+import Routes from '../routers/root';
 
 let {rootUrl,version,routes} = Routes;
 

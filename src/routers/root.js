@@ -1,3 +1,5 @@
+import example from './example';
+
 export default {
     rootUrl:'api',
     version:{
@@ -5,6 +7,10 @@ export default {
         number:1
     },
     routes:[
+        {
+            groupUrl:'todo',
+            groupRoutes:example
+        },
         /*{
             groupUrl:'database',
             groupRoutes:[
