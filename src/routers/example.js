@@ -3,6 +3,6 @@ export default [
         method:'GET',
         controller:'IndexController',
         action:'Index',
-        middleware:['TestMid1','TestMid2']
+        middleware:['TestMid1','TestMid2'] // or 'TestMid1'
     }
 ];
