@@ -6,25 +6,15 @@
 ## **Features**
 
 - Dynamic Routing
-
 	- Version Knowledge
-
 	- Grouping Urls
-
 	- Set Url
-
 	- Url Set Request Method
-
 	- Set Controller and Action
-
 	- Set Middleware(s)
-
 - Mysql/MongoDB Connection
-
 - Global Functions/Packages
-
 - EcmaScript 6 Format Writing
-
 - Pug Views and Assets(public) Folder
 
 ## **Quick Start**
@@ -38,6 +28,7 @@
 	`npm install`
 
 3. Configuration Project
+
 	Create .env file root folder(Example: .env.test file).
 	
 	    APP_PORT=[Port the project is running on. Default 3000]
@@ -65,49 +56,30 @@
         - src
             - config
                 - MongoDBConnection.js (The MongoDb connection is in this file.)
-
                 - MysqlConnection.js (The Mysql database connection is in this file.)
-
                 - Routing.js (The routing in the Routes.js file is being created here.)
-
                 - Settings.js (Here are the settings for the project. Database connection, port setting etc.)
-
         - controllers
             - IndexController.js (The actions to be done are in this controller file.)
-
         - lib
             - Modules.js (The Npm libraries are here and are defined globally.)
-
             - Service.js (Project-related functions are available here globally.)
-
         - middlewares
             - SetHeader.js (Header a sends the necessary parameters.)
-
             - TestMid1.js (Test middleware)
-
             - TestMid2.js (Test middleware)
-
         - models
             - ExampleModel.js (Example mongoDB model.)
-
         - public
             - css
                 - style.css
-
         - views
             - index.pug
-
             - layout.pug
-
         - App.js (It is the main file of the project. This includes services, settings, middleware, routing, and the error status of the project.)
-
         - Routes.js (Routing is the file we define.)
-
     - .env (The port and database settings are in this file.)
-
-    - .babelrc
-
-  
+    - .babelrc  
 
 ## **Routing Example (src/Routes.js)**
 
@@ -130,8 +102,6 @@
 
 > RootUrl and version are optional. The text and number fields in the version are also optional.
 
-  
-
 ## Routing Examples
 1. http://localhost:[YOUR_APP_PORT]/[ROOT_URL]/[VERSION_TEXT][VERSION_NUMBER]
 2. http://localhost:[YOUR_APP_PORT]/[ROOT_URL]/[VERSION_TEXT]
@@ -139,7 +109,7 @@
 4. http://localhost:[YOUR_APP_PORT]/[ROOT_URL]
 5. http://localhost:[YOUR_APP_PORT]
 
->**Important Note**: If you have a mysql connection, you can write your queries with the "**mysqldb**" variable. You can find the example in the **src/controllers/IndexController** file.
+>**Important Note**: If you have a mysql connection, you can write your queries with the "**mysqlDb**" variable. You can find the example in the **src/controllers/IndexController** file.
 
 
 
