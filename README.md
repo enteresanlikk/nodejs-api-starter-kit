@@ -1,5 +1,5 @@
 # **Node.js API Starter Kit**
-
+> It is a API startup kit that provides dynamic routing.
 
 ## **Features**
  - Dynamic Routing
@@ -11,7 +11,7 @@
     - Set Middleware(s)
 
  - Mysql/MongoDB Connection
- - Global Functions
+ - Global Functions/Packages
  - EcmaScript 6 Format Writing
  - Pug Views and Assets(public) Folder
 
