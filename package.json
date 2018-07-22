@@ -1,14 +1,28 @@
 {
-  "name": "nodeapitemplate",
+  "name": "nodejsapitemplate",
   "version": "1.0.0",
-  "description": "",
+  "description": "It is a API startup kit that provides dynamic routing.",
+  "private":false,
   "main": "bin/server",
   "scripts": {
     "start": "node bin/server",
     "dev": "nodemon bin/server"
   },
-  "keywords": [],
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/enteresanlikk/Node.jsApiStarterKit"
+  },
+  "keywords": [
+    "node",
+    "nodejs",
+    "js",
+    "express",
+    "routing",
+    "dynamic routing",
+    "es6",
+    "quickstart"
+  ],
+  "author": "Bilal Demir",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.3",
