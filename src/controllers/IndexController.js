@@ -1,6 +1,6 @@
 'use strict';
 
-class TodoController{
+class IndexController{
     Index(req,res){
         console.log(setJson(200,'Home Page'));
         res.render('index',{title:'Home Page'});
@@ -14,4 +14,4 @@ class TodoController{
     }*/
 }
 
-module.exports=new TodoController();
+module.exports=new IndexController();
