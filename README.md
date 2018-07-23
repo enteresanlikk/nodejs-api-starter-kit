@@ -24,6 +24,8 @@
 1. First Clone Project Your Computer
 
 	`git clone https://github.com/enteresanlikk/Node.jsApiStarterKit.git myapp`
+    
+    `cd myapp`
 
 2. Install NPM Packages
 
