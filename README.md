@@ -24,7 +24,7 @@
 1. First Clone Project Your Computer
 
 	`git clone https://github.com/enteresanlikk/Node.jsApiStarterKit.git myapp`
-    
+
     `cd myapp`
 
 2. Install NPM Packages
@@ -91,12 +91,12 @@
     ...
     import example from './example';
     ...
-    rootUrl:'api',
-    version:{
-        text:'v',
-        number:1
+    rootUrl:'api', //Optional
+    version:{ //Optional
+        text:'v', //Optional
+        number:1 //Optional
     },
-    middleware:'SetHeader', // or ['TestMid1','TestMid2']
+    middleware:'SetHeader', // or ['TestMid1','TestMid2'] - Optional
     routes:[
         {
             groupUrl:'example',
@@ -107,7 +107,7 @@
         url:'example',
         controller:'IndexController',
         action:'Index',
-        middleware:['TestMid1','TestMid2'] // or 'TestMid1'
+        middleware:['TestMid1','TestMid2'] // or 'TestMid1' - Optional
         }
     ]
     ...
@@ -124,7 +124,7 @@
 7. http://localhost:[YOUR_APP_PORT]/[ROOT_URL]/[ROUTES_URL]
 8. http://localhost:[YOUR_APP_PORT]/[ROUTES_URL]
 
-> **Important Note**: If you have a mysql connection, you can write your queries with the "***mysqlDb***" variable. You can find the example in the ***src/controllers/IndexController*** file.
+> **Important Note**: If you have a mysql connection, you can write your queries with the "[***mysqlDb***](https://github.com/enteresanlikk/Node.jsApiStarterKit/blob/master/src/config/Settings.js#L24)" variable. You can find the example in the [***src/controllers/IndexController***](https://github.com/enteresanlikk/Node.jsApiStarterKit/blob/master/src/controllers/IndexController.js#L11) file.
 
 
 
