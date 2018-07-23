@@ -1,11 +1,12 @@
 import example from './example';
 
-export default {
+module.exports={
     rootUrl:'api',
     version:{
         text:'v',
         number:1
     },
+    middleware:'SetHeader',
     routes:[
         {
             groupUrl:'example',

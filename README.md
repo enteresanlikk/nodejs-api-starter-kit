@@ -3,6 +3,8 @@
 
 > It is a API startup kit that provides dynamic routing.
 
+> **Note**: The routing system is written with [express-dynamic-router-creator](https://github.com/enteresanlikk/express-dynamic-router-creator).
+
 ## **Features**
 
 - Dynamic Routing
@@ -57,7 +59,6 @@
             - config
                 - MongoDBConnection.js (The MongoDb connection is in this file.)
                 - MysqlConnection.js (The Mysql database connection is in this file.)
-                - Routing.js (The routing in the routes/root.js file is being created here.)
                 - Settings.js (Here are the settings for the project. Database connection, port setting etc.)
         - controllers
             - IndexController.js (The actions to be done are in this controller file.)
@@ -93,6 +94,7 @@
         text:'v',
         number:1
     },
+    middleware:'SetHeader', // or ['TestMid1','TestMid2']
     routes:[
         {
             groupUrl:'example',

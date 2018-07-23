@@ -5,11 +5,18 @@ import './lib/Service';
 //SETTINGS
 import './config/Settings';
 
-//MIDDLEWARES
-app.use(require('./middlewares/SetHeader'));
+const DynamicRoute=require("express-dynamic-router-creator");
 
-//SET ROUTING
-import {setDir} from './config/Routing'; setDir(__dirname);
+DynamicRoute.Config({
+    app:app,
+    folders:{
+        routers:'src/routers',
+        middlewares:'src/middlewares',
+        controllers:'src/controllers'
+    },
+    mainFile:'main.js',
+    log:true
+});
 
 //ERROR PAGE
 app.use((req, res)=> {
