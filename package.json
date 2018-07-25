@@ -5,7 +5,6 @@
   "private": false,
   "main": "bin/server",
   "scripts": {
-	"postinstall": "npm install",
     "start": "node bin/server",
     "dev": "nodemon bin/server"
   },
