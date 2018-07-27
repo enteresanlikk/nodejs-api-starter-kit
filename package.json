@@ -1,5 +1,5 @@
 {
-  "name": "nodejsapitemplate",
+  "name": "nodejs-api-template",
   "version": "1.0.0",
   "description": "It is a API startup kit that provides dynamic routing.",
   "private": false,
