@@ -5,14 +5,12 @@ import './lib/Service';
 //SETTINGS
 import './config/Settings';
 
-const DynamicRoute=require("express-dynamic-router-creator");
-
 DynamicRoute.Config({
     app:app,
     folders:{
-        routers:'src/routers',
-        middlewares:'src/middlewares',
-        controllers:'src/controllers'
+        routers:path.join(__dirname,'routers'),
+        middlewares:path.join(__dirname,'middlewares'),
+        controllers:path.join(__dirname,'controllers')
     },
     mainFile:'main.js',
     log:true

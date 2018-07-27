@@ -9,6 +9,9 @@ class Modules{
         global.fs=require('fs');
         require('dotenv').config();
 
+        //Dynamic Route
+        global.DynamicRoute=require("express-dynamic-router-creator")
+
         //DATABASE
             global.mongoose=require('mongoose');
             global.mysql=require('mysql');

@@ -28,9 +28,9 @@
     "body-parser": "^1.18.3",
     "cookie-parser": "^1.4.3",
     "express": "^4.16.3",
-    "express-dynamic-router-creator": "^1.0.9",
+    "express-dynamic-router-creator": "^1.1.0",
     "fs": "0.0.1-security",
-    "mongoose": "^5.2.3",
+    "mongoose": "^5.2.5",
     "mysql": "^2.16.0",
     "path": "^0.12.7",
     "pug": "^2.0.3"
@@ -41,6 +41,6 @@
     "babel-preset-stage-2": "^6.24.1",
     "babel-register": "^6.26.0",
     "dotenv": "^6.0.0",
-    "nodemon": "^1.18.2"
+    "nodemon": "^1.18.3"
   }
 }
