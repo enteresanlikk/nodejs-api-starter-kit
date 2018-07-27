@@ -1,0 +1,39 @@
+import example from './example';
+
+module.exports={
+    rootUrl:'api',
+    middleware:'SetHeader',
+    routes:[
+        {
+            groupUrl:'example',
+            groupRoutes:[
+                {
+                    groupUrl:'test-1',
+                    groupRoutes:[
+                        {
+                            groupUrl:'test-2',
+                            groupRoutes:[
+                                {
+                                    groupUrl:'test-3',
+                                    groupRoutes:[
+                                        {
+                                            groupUrl:'test-4',
+                                            groupRoutes:example
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            method:'GET',
+            url:'',
+            controller:'IndexController',
+            action:'Index',
+            middleware:['TestMid1','TestMid2'] // or 'TestMid1'
+        }
+    ]
+};
