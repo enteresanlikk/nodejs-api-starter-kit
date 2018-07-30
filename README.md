@@ -43,6 +43,11 @@
 	    DB_USERNAME=[Database Username]
 	    DB_PASSWORD=[Database Password]
 
+        /* If you choose mysql, you can access this variable from within the project. 
+        If you do not define a variable, you will use the variable "mysqlDb". */
+
+        DB_VARIABLE=
+
 4. Start Project
 	
     `npm start (node) / npm run dev (nodemon)`

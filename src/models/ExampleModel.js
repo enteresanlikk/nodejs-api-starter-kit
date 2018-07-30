@@ -28,4 +28,4 @@ const ExampleSchema=new mongoose.Schema({
     }
 });
 
-export default mongoose.model("example",ExampleSchema);
+module.exports= mongoose.model("example",ExampleSchema);

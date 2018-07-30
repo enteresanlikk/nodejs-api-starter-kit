@@ -8,7 +8,8 @@ let {
     DB_HOST,
     DB_NAME,
     DB_USERNAME,
-    DB_PASSWORD
+    DB_PASSWORD,
+    DB_VARIABLE
 } = process.env;
 
 class Settings{
@@ -19,9 +20,11 @@ class Settings{
     }
 
     ConnectDb=()=>{
+        DB_VARIABLE=DB_VARIABLE ? DB_VARIABLE:"mysqlDb";
+        
         switch(DB_TYPE){
             case 'mongo': MongoDBConnect(DB_USERNAME,DB_PASSWORD,DB_HOST,DB_NAME); break;
-            case 'mysql': global.mysqlDb=MysqlConnection(DB_USERNAME,DB_PASSWORD,DB_HOST,DB_NAME); break;
+            case 'mysql': global[DB_VARIABLE]=MysqlConnection(DB_USERNAME,DB_PASSWORD,DB_HOST,DB_NAME); break;
         }
     }
 
