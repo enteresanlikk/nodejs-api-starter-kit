@@ -1,11 +1,15 @@
 'use strict';
-export function connect(username,password,host,db_name){
-    mongoose.connect("mongodb://"+username+":"+password+"@"+host+"/"+db_name+"",{ useNewUrlParser: true });
-    mongoose.connection.on("open",()=>{
-        console.log("MongoDB: Connected");
-    });
+import Mongoose from 'mongoose';
 
-    mongoose.connection.on("error",function(err){
-        console.error("MongoDB: "+err);
+export function Connect(Uri){
+    const Options = {
+        useNewUrlParser: true
+    };
+    Mongoose.connect(Uri, Options);
+    Mongoose.connection.on('open',()=>{
+        console.log('MongoDB: Connected');
+    });
+    Mongoose.connection.on("error",function(err){
+        console.error(`MongoDB: ${err}`);
     });
 }

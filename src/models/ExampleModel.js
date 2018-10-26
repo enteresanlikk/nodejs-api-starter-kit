@@ -1,26 +1,21 @@
 'use strict';
+import mongoose from 'mongoose';
 
 const ExampleSchema=new mongoose.Schema({
-    title:{
-        type:String,
-        required:[true,`'{PATH}' field required!!!`]
+    name:{
+        type: String,
+        required: true
     },
-    content:{
-        type:String,
-        required:[true,`'{PATH}' field required!!!`]
-    },
-    isDone:{
-        type:Number,
-        default:0,
-        required:[true,`'{PATH}' field required!!!`]
+    surname:{
+        type: String,
+        required: true
     },
     status:{
       type:Number,
       default:1
     },
     createdDate:{
-        type:Date,
-        default:Date.now()
+        type:Date
     },
     updatedDate:{
         type:Date,
@@ -28,4 +23,4 @@ const ExampleSchema=new mongoose.Schema({
     }
 });
 
-module.exports= mongoose.model("example",ExampleSchema);
+module.exports= mongoose.model('example',ExampleSchema);

@@ -1,10 +1,10 @@
-class TestMid1 {
+class ApiMid {
     constructor(){
         return function handler(req, res, next) {
-            res.setHeader('TestMid1','TestMid1');
+            res.setHeader('ApiMid','ApiMid');
             next();
         };
     }
 }
 
-module.exports = new TestMid1();
+module.exports = new ApiMid();
