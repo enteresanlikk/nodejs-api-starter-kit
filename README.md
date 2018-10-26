@@ -14,7 +14,7 @@
 	- Url Set Request Method
 	- Set Controller and Action
 	- Set Middleware(s)
-- Mysql/MongoDB Connection
+- MongoDB Connection
 - Global Functions/Packages
 - EcmaScript 6 Format Writing
 - Pug Views and Assets(public) Folder
@@ -23,7 +23,7 @@
 
 1. First Clone Project Your Computer
 
-	`git clone https://github.com/enteresanlikk/Node.jsApiStarterKit.git myapp`
+	`git clone https://github.com/enteresanlikk/nodejs-api-starter-kit myapp`
 
     `cd myapp`
 
@@ -33,20 +33,12 @@
 
 3. Configuration Project
 
-	Create .env file root folder(Example: .env.test file).
+	Create .env file root folder(Example: .env.example file).
 	
-	    APP_PORT=[Port the project is running on. Default 3000]
+	    DOMAIN=[Your application Domain. Default http://localhost]
+        PORT=[Your application port. Default 3000]
 
-	    DB_TYPE=[mongo or mysql]
-	    DB_HOST=[Database Host]
-	    DB_NAME=[Database Name]
-	    DB_USERNAME=[Database Username]
-	    DB_PASSWORD=[Database Password]
-
-        /* If you choose mysql, you can access this variable from within the project. 
-        If you do not define a variable, you will use the variable "mysqlDb". */
-
-        DB_VARIABLE=
+        MONGO_URI=[MongoDB connection URI]
 
 4. Start Project
 	
@@ -60,62 +52,123 @@
 
 ## **Project Folder Structure**
 
-        - bin
-            - server (It is the server file on which the project is running.)
         - src
-            - config
+            - Config
                 - MongoDBConnection.js (The MongoDb connection is in this file.)
-                - MysqlConnection.js (The Mysql database connection is in this file.)
-                - Settings.js (Here are the settings for the project. Database connection, port setting etc.)
-        - controllers
-            - IndexController.js (The actions to be done are in this controller file.)
-        - lib
-            - Modules.js (The Npm libraries are here and are defined globally.)
-            - Service.js (Project-related functions are available here globally.)
-        - middlewares
-            - SetHeader.js (Header a sends the necessary parameters.)
+        - Controllers
+            - Api (Back-end Folder)
+                - IndexController.js (The actions to be done are in this controller file.)
+            - Client (Front-end Folder)
+                - IndexController.js (The actions to be done are in this controller file.)
+        - Lib
+            - WhiteList.js (People who can use the Api are identified.)
+        - Middlewares
+            - ApiMid.js (Test middleware)
             - TestMid1.js (Test middleware)
             - TestMid2.js (Test middleware)
-        - models
+        - Models
             - ExampleModel.js (Example mongoDB model.)
-        - public
+        - Public
             - css
                 - style.css
-        - routers
-            - root.js (Routing is the root file we define.)
-            - example.js (Routing is the file we define.)
-        - views
-            - index.pug
-            - layout.pug
-        - App.js (It is the main file of the project. This includes services, settings, middleware, routing, and the error status of the project.)
-    - .env (The port and database settings are in this file.)
+        - Routers
+            - Api (Back-end Folder)
+                - Index.js (Routing is the root file we define.)
+            - Client (Front-end Folder)
+                - Index.js (Routing is the file we define.)
+                - Example.js (Routing is the file we define.)
+        - Services
+            - Tools.js (The functions to be used in the system are included here.)
+        - Views
+            - Home
+                - Index.pug
+            - Shared
+                - Layout.pug
+        - Server.js (It is the main file of the project. This includes services, settings, middleware, routing, and the error status of the project.)
+    - .env (The domain, port and database settings are in this file.)
     - .babelrc  
 
-## **Routing Example (src/routers/root.js)**
+## **Client Routing Example (src/Routers/Client/Index.js)**
 
-    ...
-    import example from './example';
-    ...
-    rootUrl:'api', //Optional
-    version:{ //Optional
-        text:'v', //Optional
-        number:1 //Optional
-    },
-    middleware:'SetHeader', // or ['TestMid1','TestMid2'] - Optional
-    routes:[
-        {
-            groupUrl:'example',
-            groupRoutes:example
+    import Example from './Example';
+
+    module.exports = {
+        routes: [
+            {
+                method: 'GET',
+                controller: 'Client/HomeController',
+                action: 'Index',
+                middleware: 'TestMid1' // or ['TestMid1','TestMid2'] (Array or String)
+            },
+            {
+                groupUrl: 'client',
+                groupRoutes: Example,
+                middleware: ['TestMid1','TestMid2'] // or 'TestMid1' (String or Array)
+            }
+        ]
+    }
+
+## **Api Routing Example (src/Routers/Client/Index.js)**
+
+    import Cors from 'cors';
+    import WhiteList from '../../lib/WhiteList'; //Api access List.
+    import Example from './Example';
+
+    //Request options method settings.
+    const CorsOptions = {
+        origin : (origin, cb)=>{
+            if (WhiteList.indexOf(origin) !== -1 || !origin)
+                cb(null, true);
+            else
+                cb({status:403,data:'You do not have permission!'});
+            
         },
-        {
-        method:'GET|POST|PUT|DELETE',
-        url:'example',
-        controller:'IndexController',
-        action:'Index',
-        middleware:['TestMid1','TestMid2'] // or 'TestMid1' - Optional
-        }
-    ]
-    ...
+        optionsSuccessStatus: 200,
+        credentials:true
+    }
+
+    module.exports = {
+        rootUrl: 'api',
+        version: {
+            text: 'v',
+            number: 1
+        },
+        optionsMiddleware: Cors(CorsOptions),
+        middleware:'ApiMid',
+        routes: [
+            {
+                method: 'GET',
+                controller: 'Api/HomeController',
+                action: 'Index',
+                middleware: 'ApiMid'
+            },
+            {
+                groupUrl: 'test',
+                middleware: 'TestMid1',
+                groupRoutes: [
+                    {
+                        method: 'POST',
+                        url: '1',
+                        controller: 'Api/HomeController',
+                        action: 'Index',
+                        middleware: ['TestMid1','TestMid2']
+                    },
+                    {
+                        method: 'GET',
+                        url: '2',
+                        controller: 'Api/HomeController',
+                        action: 'Index',
+                        middleware: 'TestMid1'
+                    }
+                ]
+            },
+            {
+                groupUrl: 'other',
+                groupRoutes: Example,
+                middleware: ['TestMid1','TestMid2']
+            }
+        ]
+    }
 
 > RootUrl and version are optional. The text and number fields in the version are also optional.
 
@@ -128,9 +181,3 @@
 6. http://localhost:[YOUR_APP_PORT]/[VERSION_TEXT]/[ROUTES_URL]
 7. http://localhost:[YOUR_APP_PORT]/[ROOT_URL]/[ROUTES_URL]
 8. http://localhost:[YOUR_APP_PORT]/[ROUTES_URL]
-
-> **Important Note**: If you have a mysql connection, you can write your queries with the "[***mysqlDb***](https://github.com/enteresanlikk/Node.jsApiStarterKit/blob/master/src/config/Settings.js#L24)" variable. You can find the example in the [***src/controllers/IndexController***](https://github.com/enteresanlikk/Node.jsApiStarterKit/blob/master/src/controllers/IndexController.js#L11) file.
-
-
-
-

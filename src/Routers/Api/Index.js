@@ -1,5 +1,6 @@
 import Cors from 'cors';
 import WhiteList from '../../lib/WhiteList';
+import Example from './Example';
 
 const CorsOptions = {
     origin : (origin, cb)=>{
@@ -25,7 +26,8 @@ module.exports = {
         {
             method: 'GET',
             controller: 'Api/HomeController',
-            action: 'Index'
+            action: 'Index',
+            middleware: 'ApiMid'
         },
         {
             groupUrl: 'test',
@@ -35,15 +37,22 @@ module.exports = {
                     method: 'POST',
                     url: '1',
                     controller: 'Api/HomeController',
-                    action: 'Index'
+                    action: 'Index',
+                    middleware: ['TestMid1','TestMid2']
                 },
                 {
                     method: 'GET',
                     url: '2',
                     controller: 'Api/HomeController',
-                    action: 'Index'
+                    action: 'Index',
+                    middleware: 'TestMid1'
                 }
             ]
+        },
+        {
+            groupUrl: 'other',
+            groupRoutes: Example,
+            middleware: ['TestMid1','TestMid2']
         }
     ]
 }
