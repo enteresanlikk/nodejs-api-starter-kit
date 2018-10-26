@@ -1,5 +1,5 @@
 import Cors from 'cors';
-import WhiteList from '../../lib/WhiteList';
+import WhiteList from '../../Lib/WhiteList';
 import Example from './Example';
 
 const CorsOptions = {

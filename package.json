@@ -2,10 +2,10 @@
   "name": "nodejs-api-starter-kit",
   "version": "0.0.1",
   "description": "It is a API startup kit that provides dynamic routing.",
-  "main": "src/Service.js",
+  "main": "Src/Service.js",
   "scripts": {
-    "start": "node ./src/Server.js --exec babel-node --presets es2015,stage-2",
-    "dev": "nodemon ./src/Server.js --exec babel-node --presets es2015,stage-2"
+    "start": "node ./Src/Server.js --exec babel-node --presets es2015,stage-2",
+    "dev": "nodemon ./Src/Server.js --exec babel-node --presets es2015,stage-2"
   },
   "keywords": [
     "node",

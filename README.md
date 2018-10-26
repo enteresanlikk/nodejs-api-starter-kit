@@ -88,7 +88,7 @@
     - .env (The domain, port and database settings are in this file.)
     - .babelrc  
 
-## **Client Routing Example (src/Routers/Client/Index.js)**
+## **Client Routing Example [Src/Routers/Client/Index.js](Src/Routers/Client/Index.js)**
 
     import Example from './Example';
 
@@ -108,10 +108,10 @@
         ]
     }
 
-## **Api Routing Example (src/Routers/Client/Index.js)**
+## **Api Routing Example [Src/Routers/Api/Index.js](Src/Routers/Api/Index.js)**
 
     import Cors from 'cors';
-    import WhiteList from '../../lib/WhiteList'; //Api access List.
+    import WhiteList from '../../Lib/WhiteList'; //Api access List.
     import Example from './Example';
 
     //Request options method settings.
