@@ -8,7 +8,6 @@ const CorsOptions = {
             cb(null, true);
         else
             cb({status:403,data:'You do not have permission!'});
-        
     },
     optionsSuccessStatus: 200,
     credentials:true

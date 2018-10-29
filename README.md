@@ -52,7 +52,7 @@
 
 ## **Project Folder Structure**
 
-        - src
+        - Src
             - Config
                 - MongoDBConnection.js (The MongoDb connection is in this file.)
         - Controllers
@@ -121,7 +121,6 @@
                 cb(null, true);
             else
                 cb({status:403,data:'You do not have permission!'});
-            
         },
         optionsSuccessStatus: 200,
         credentials:true

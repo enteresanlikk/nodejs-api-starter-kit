@@ -4,8 +4,8 @@
   "description": "It is a API startup kit that provides dynamic routing.",
   "main": "Src/Service.js",
   "scripts": {
-    "start": "node ./Src/Server.js --exec babel-node --presets es2015,stage-2",
-    "dev": "nodemon ./Src/Server.js --exec babel-node --presets es2015,stage-2"
+    "start": "set NODE_ENV=prod && node ./Src/Server.js --exec babel-node --presets es2015,stage-2",
+    "dev": "set NODE_ENV=dev && nodemon ./Src/Server.js --exec babel-node --presets es2015,stage-2"
   },
   "keywords": [
     "node",
