@@ -1,8 +1,4 @@
 export default new class Tools{
-    constructor(){
-        
-    }
-
     TrimJSON(data){
         let keys=Object.keys(data);
         keys.forEach((item)=>{

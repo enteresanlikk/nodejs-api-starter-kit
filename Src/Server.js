@@ -16,7 +16,7 @@ const {
     MONGO_URI
 } = process.env;
 
-export default new class Server{
+export default new class Server {
     constructor(){
         this.SetPort(PORT);
         this.SetDomain(DOMAIN);
@@ -56,19 +56,18 @@ export default new class Server{
     }
 
     SetRouting(){
-        DynamicRouter.Config({
-            app:App,
-            folders:{
-                routers:path.join(__dirname,'Routers'),
-                controllers:path.join(__dirname,'Controllers'),
-                middlewares:path.join(__dirname,'Middlewares')
+        new DynamicRouter(
+            App,
+            {
+                Routers:path.join(__dirname,'Routers'),
+                Controllers:path.join(__dirname,'Controllers'),
+                Middlewares:path.join(__dirname,'Middlewares')
             },
-            mainFile:['Api/Index.js', 'Client/Index.js'],
-            log:true
-        });
+            ['Api/Index.js', 'Client/Index.js']
+        );
     }
 
-    SetErrorPages(){
+    SetErrorPages() {
         App.use((req, res, next)=>{
             const err = {
                 status: '',
@@ -81,7 +80,8 @@ export default new class Server{
           
         App.use((err, req, res, next)=> {
             res.status(err.status || 500);
-            res.json({data:{error: (err.data ? err.data : err) }});
+            //res.json({data:{error: (err.data ? err.data : err) }});
+            res.render('PageNotFound/Index');
         });
     }
 

@@ -52,7 +52,7 @@
 
 ## **Project Folder Structure**
 
-        - Src
+        - src
             - Config
                 - MongoDBConnection.js (The MongoDb connection is in this file.)
         - Controllers
@@ -76,7 +76,6 @@
                 - Index.js (Routing is the root file we define.)
             - Client (Front-end Folder)
                 - Index.js (Routing is the file we define.)
-                - Example.js (Routing is the file we define.)
         - Services
             - Tools.js (The functions to be used in the system are included here.)
         - Views
@@ -90,23 +89,18 @@
 
 ## **Client Routing Example [Src/Routers/Client/Index.js](Src/Routers/Client/Index.js)**
 
-    import Example from './Example';
-
-    module.exports = {
-        routes: [
-            {
-                method: 'GET',
-                controller: 'Client/HomeController',
-                action: 'Index',
-                middleware: 'TestMid1' // or ['TestMid1','TestMid2'] (Array or String)
-            },
-            {
-                groupUrl: 'client',
-                groupRoutes: Example,
-                middleware: ['TestMid1','TestMid2'] // or 'TestMid1' (String or Array)
-            }
-        ]
-    }
+    module.exports = [
+        {
+            Routes: [
+                {
+                    Method: 'GET',
+                    Controller: 'Client/HomeController',
+                    Action: 'Index',
+                    Middleware: ['TestMid1','TestMid2']
+                }
+            ]
+        }
+    ]
 
 ## **Api Routing Example [Src/Routers/Api/Index.js](Src/Routers/Api/Index.js)**
 
@@ -120,63 +114,44 @@
             if (WhiteList.indexOf(origin) !== -1 || !origin)
                 cb(null, true);
             else
-                cb({status:403,data:'You do not have permission!'});
+                cb({
+                    status: 403,
+                    data: 'You do not have permission!'
+                });
         },
         optionsSuccessStatus: 200,
         credentials:true
     }
 
-    module.exports = {
-        rootUrl: 'api',
-        version: {
-            text: 'v',
-            number: 1
-        },
-        optionsMiddleware: Cors(CorsOptions),
-        middleware:'ApiMid',
-        routes: [
-            {
-                method: 'GET',
-                controller: 'Api/HomeController',
-                action: 'Index',
-                middleware: 'ApiMid'
-            },
-            {
-                groupUrl: 'test',
-                middleware: 'TestMid1',
-                groupRoutes: [
-                    {
-                        method: 'POST',
-                        url: '1',
-                        controller: 'Api/HomeController',
-                        action: 'Index',
-                        middleware: ['TestMid1','TestMid2']
-                    },
-                    {
-                        method: 'GET',
-                        url: '2',
-                        controller: 'Api/HomeController',
-                        action: 'Index',
-                        middleware: 'TestMid1'
-                    }
-                ]
-            },
-            {
-                groupUrl: 'other',
-                groupRoutes: Example,
-                middleware: ['TestMid1','TestMid2']
-            }
-        ]
-    }
-
-> RootUrl and version are optional. The text and number fields in the version are also optional.
-
-## Routing Examples
-1. http://localhost:[YOUR_APP_PORT]/[ROOT_URL]/[VERSION_TEXT][VERSION_NUMBER]/[ROUTES_URL]
-2. http://localhost:[YOUR_APP_PORT]/[ROOT_URL]/[VERSION_NUMBER]/[ROUTES_URL]
-2. http://localhost:[YOUR_APP_PORT]/[ROOT_URL]/[VERSION_TEXT]/[ROUTES_URL]
-4. http://localhost:[YOUR_APP_PORT]/[VERSION_TEXT][VERSION_NUMBER]/[ROUTES_URL]
-5. http://localhost:[YOUR_APP_PORT]/[VERSION_NUMBER]/[ROUTES_URL]
-6. http://localhost:[YOUR_APP_PORT]/[VERSION_TEXT]/[ROUTES_URL]
-7. http://localhost:[YOUR_APP_PORT]/[ROOT_URL]/[ROUTES_URL]
-8. http://localhost:[YOUR_APP_PORT]/[ROUTES_URL]
+    module.exports = [
+        {
+            Url: 'api/v1',
+            optionsMiddlewares: [Cors(CorsOptions)],
+            Middlewares: ['ApiMid'],
+            Routes: [
+                {
+                    Method: 'GET',
+                    Controller: 'Api/HomeController',
+                    Action: 'Index'
+                },
+                {
+                    Url: 'test',
+                    Middlewares: ['TestMid1'],
+                    Routes: [
+                        {
+                            Method: 'POST',
+                            Url: '1',
+                            Controller: 'Api/HomeController',
+                            Action: 'Index'
+                        },
+                        {
+                            Method: 'GET',
+                            url: '2',
+                            Controller: 'Api/HomeController',
+                            Action: 'Index'
+                        }
+                    ]
+                }
+            ]
+        }
+    ];

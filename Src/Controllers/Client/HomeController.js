@@ -2,12 +2,7 @@
 
 class HomeController{
     Index(req,res){
-        res.render(
-            'Home/Index',
-            {
-                title: 'Home'
-            }
-        );
+        res.render('Home/Index', {title: 'Home'});
     }
 }
 

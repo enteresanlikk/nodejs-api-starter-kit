@@ -9,7 +9,7 @@ export function Connect(Uri){
     Mongoose.connection.on('open',()=>{
         console.log('MongoDB: Connected');
     });
-    Mongoose.connection.on('error',function(err){
+    Mongoose.connection.on("error",function(err){
         console.error(`MongoDB: ${err}`);
     });
 }
